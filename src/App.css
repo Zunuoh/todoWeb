@@ -26,14 +26,13 @@ body{
   margin-left: 15%;
   margin-right: 15%;
   margin-top: 60px;
-  color: aliceblue;
+ 
 }
 
 .mainHeader{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background-color: blue; */
   align-items: center;
 }
 
@@ -51,6 +50,7 @@ body{
   padding: 20px;
   align-items: center;
   font-size: 20px;
+  color: aliceblue;
   display: flex;
   justify-content: space-between;
 }

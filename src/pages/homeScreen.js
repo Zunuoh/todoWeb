@@ -6,11 +6,11 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 const HomeScreen = () => {
     return (
         <div>
-                <Row style={{backgroundColor:"#16171E"}}>
+                <Row >
                 <Col>
                     <SideCollection/>
                 </Col>
-                <Col xs={10} style={{backgroundColor:"#16171E"}}>
+                <Col xs={10} >
                     <MainScreen/>
                 </Col>
                 </Row>
