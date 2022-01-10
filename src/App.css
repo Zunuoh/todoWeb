@@ -1,0 +1,20 @@
+.collectionContainer{
+  height: 100vh;
+  background-color: #262732;
+  color: aliceblue;
+}
+
+.collectionHeader{
+  padding: 20px;
+  font-weight: bold;
+}
+
+.collections{
+  padding: 20px;
+}
+
+.collection{
+  display: flex;
+  font-weight: 800;
+ 
+}
