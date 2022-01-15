@@ -1,7 +1,7 @@
 import React from 'react';
 import SideCollection from './sideCollection';
 import MainScreen from './mainScreen';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const HomeScreen = () => {
     return (

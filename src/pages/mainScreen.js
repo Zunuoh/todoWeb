@@ -1,16 +1,25 @@
 import React, { useState } from "react";
+import AddTask from "../modals/addTask";
 import { Button } from "react-bootstrap";
-import { Plus, Delete, Edit } from "react-feather";
+import { Delete, Edit } from "react-feather";
+
 
 const taskList = [{"id":"0", "name":"Register courses"}, {"id":"1", "name":"Psychology class at 5pm"}, {"id":"2", "name":"Serminar"}]
 
 const MainScreen = () => {
-    const[tasks, setTasks] = useState(taskList);
+    const[tasks] = useState(taskList);
+    const[showModal, setShowModal] = useState(false);
+
+ 
   return (
     <div className="mainContainer">
       <div className="mainHeader">
         <div style={{ fontSize: 30 }}>SCHOOL</div>
-        <Button style={{backgroundColor:"#77BEBB"}}>Add Task</Button>
+        <div>
+        <Button style={{backgroundColor:"#77BEBB"}} onClick={() => setShowModal(true)}>Add Task</Button>
+        <AddTask show={showModal} onClose={()=>setShowModal(false)}/>
+        </div>
+      
       </div>
 
       <div className="tasks">
@@ -19,7 +28,7 @@ const MainScreen = () => {
         {tasks && tasks.map(task =>{
             return(
          <div className="taskDiv">
-          <div style={{ flex: 9 }}>
+          <div style={{ flex: 9, display:"flex" }}>
             <p>{task.name}</p>
           </div>
           <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>

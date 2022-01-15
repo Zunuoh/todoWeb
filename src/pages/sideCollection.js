@@ -7,7 +7,7 @@ const collectionList = [
 ];
 
 const SideCollection = () => {
-  const [collections, setCollections] = useState(collectionList);
+  const [collections] = useState(collectionList);
   return (
     <div className="collectionContainer">
       <div className="collectionHeader">COLLECTIONS</div>
@@ -19,7 +19,6 @@ const SideCollection = () => {
               <div className="collection">
                 <div
                   style={{
-                    backgroundColor: "blue",
                     width: 40,
                     height: 40,
                     display: "flex",
