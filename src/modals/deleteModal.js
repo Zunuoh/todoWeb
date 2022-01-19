@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 
-const AddTask = props => {
+const DeleteTask = props => {
     if (!props.show) {
         return null
     }
@@ -11,7 +11,7 @@ const AddTask = props => {
             <div className='modalContainer'>
 
                 <div className='title'>
-                    <h4 className='modal-title'>ADD TASK</h4>
+                    <h4 className='modal-title'>DELETE TASK</h4>
                 </div>
 
                 <div className='modalBody'>
@@ -33,4 +33,4 @@ const AddTask = props => {
     )
 }
 
-export default AddTask;
+export default DeleteTask;

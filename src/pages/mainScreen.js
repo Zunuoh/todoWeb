@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import AddTask from "../modals/addTask";
+import DeleteTask from "../modals/deleteModal";
 import { Button } from "react-bootstrap";
-import { Delete, Edit } from "react-feather";
-
+import { Trash, Edit } from "react-feather";
+ 
 
 const taskList = [{"id":"0", "name":"Register courses"}, {"id":"1", "name":"Psychology class at 5pm"}, {"id":"2", "name":"Serminar"}]
 
 const MainScreen = () => {
     const[tasks] = useState(taskList);
-    const[showModal, setShowModal] = useState(false);
+    const[showAddModal, setshowAddModal] = useState(false);
+    const[showDeleteModal, setShowDeleteModal] = useState(false);
 
  
   return (
@@ -16,8 +18,8 @@ const MainScreen = () => {
       <div className="mainHeader">
         <div style={{ fontSize: 30 }}>SCHOOL</div>
         <div>
-        <Button style={{backgroundColor:"#77BEBB"}} onClick={() => setShowModal(true)}>Add Task</Button>
-        <AddTask show={showModal} onClose={()=>setShowModal(false)}/>
+        <Button style={{backgroundColor:"#77BEBB"}} onClick={() => setshowAddModal(true)}>Add Task</Button>
+        <AddTask show={showAddModal} onClose={()=>setshowAddModal(false)}/>
         </div>
       
       </div>
@@ -33,10 +35,11 @@ const MainScreen = () => {
           </div>
           <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
             <div style={{ flex: 1 }}>
-              <Delete />
-            </div>
-            <div style={{ flex: 1 }}>
               <Edit />
+            </div>
+            <div style={{ flex: 1 }} onClick={()=>{setShowDeleteModal(true)}} >
+              <Trash />
+              <DeleteTask show={showDeleteModal} onClose={()=>{setShowDeleteModal(false)}}/>
             </div>
           </div>
         </div>
