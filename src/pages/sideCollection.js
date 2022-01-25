@@ -24,7 +24,7 @@ const SideCollection = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "#77BEBB",
+                    backgroundColor: "#BD33A4",
                   }}
                 >
                   {collection.icon}
@@ -35,6 +35,7 @@ const SideCollection = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    color:"#BD33A4"
                   }}
                 >
                   {collection.name}

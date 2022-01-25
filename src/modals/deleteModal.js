@@ -1,33 +1,32 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 
 
-const DeleteTask = props => {
+
+const DeleteTask = (props) => {
     if (!props.show) {
         return null
     }
     return (
         <div className='modalBackground'>
-            <div className='modalContainer'>
+        <div className='modalContainer'>
 
-                <div className='title'>
-                    <h4 className='modal-title'>DELETE TASK</h4>
-                </div>
+            <div className='title'>
+                <h4 className='modal-title'>DELETE TASK</h4>
+            </div>
 
-                <div className='modalBody'>
-                  <div style={{display:"flex", flexDirection:"column"}}>
-                      <label style={{marginBottom:20}}>Enter task:</label>
-                      <input type='text' placeholder='Enter task' />
-
-                  </div>
-                </div>
-                
-                <div className='footer'>
-                <Button onClick={props.onClose} style={{backgroundColor:"#77BEBB"}}>Close</Button>
-                </div>
+            <div className='modalBody'>
+              <div>
+                <p style={{color:"#3A2E39", marginTop:30}}>Are you sure you want to delete this task?</p>  
+              </div>
             </div>
             
+            <div className='footer'>
+            <button className='todo-button'>Yes</button>
+            <button onClick={props.onClose} >Cancel</button>
+            </div>
         </div>
+        
+    </div>
 
        
     )

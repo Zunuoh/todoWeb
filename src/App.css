@@ -4,7 +4,7 @@ body{
 }
 .collectionContainer{
   height: 100vh;
-  background-color: #262732;
+  background-color: #3A2E39;
   color: aliceblue;
 }
 
@@ -41,7 +41,7 @@ body{
 }
 
 .taskDiv{
-  background-color: #1F202B;
+  background-color: #3A2E39;
   height: 80px;
   border-width: 1;
   border-radius: 30px;
@@ -53,12 +53,13 @@ body{
   color: aliceblue;
   display: flex;
   justify-content: space-between;
+  box-shadow: "1px 3px 1px #9E9E9E"
 }
 
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(158, 155, 155, 0.6);
+  background-color: rgba(255, 251, 251, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -68,10 +69,11 @@ body{
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  
 }
 
 .modalContainer {
-  width: 350px;
+  width: 450px;
   height: 250px;
   border-radius: 12px;
   background-color: white;
@@ -79,13 +81,15 @@ body{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-bottom: 10%;
 }
 
-.modalContainer .title {
+/* .modalContainer .title {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
-}
+  color: #1F202B;
+} */
 
 .titleCloseBtn {
   display: flex;
@@ -120,9 +124,51 @@ body{
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: green;
+  background-color: #3A2E39;
   color: white;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
 }
+
+.todo-form{
+  margin-top: 15px;
+}
+
+.todo-taskName{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #3A2E39;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.modal-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3A2E39;
+
+}
+
+.svgContainer{
+  width: 650px;
+  height: 650px;
+}
+
+.signin-form{
+  margin-top: 2%;
+}
+
+.signin-container{
+  padding: 30px;
+}
+
+.colContainer{
+  background-color: #3A2E39;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

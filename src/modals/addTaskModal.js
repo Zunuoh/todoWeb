@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 
 
-const AddTask = props => {
+
+const AddTaskModal = (props) => {
     if (!props.show) {
         return null
     }
@@ -16,14 +16,17 @@ const AddTask = props => {
 
                 <div className='modalBody'>
                   <div style={{display:"flex", flexDirection:"column"}}>
-                      <label style={{marginBottom:20}}>Enter task:</label>
-                      <input type='text' placeholder='Enter task' />
-
+                      <form className='todo-form'>
+                      <label style={{fontSize:20, fontWeight:"bold", color:"#3A2E39"}}>Enter task:</label>
+                      <input type='text' placeholder='Enter task' 
+                      className='todo-taskName' name="task"/>
+                      </form>
                   </div>
                 </div>
                 
                 <div className='footer'>
-                <Button onClick={props.onClose} style={{backgroundColor:"#77BEBB"}}>Close</Button>
+                <button className='todo-button'>Add</button>
+                <button onClick={props.onClose} >Close</button>
                 </div>
             </div>
             
@@ -33,4 +36,4 @@ const AddTask = props => {
     )
 }
 
-export default AddTask;
+export default AddTaskModal;
