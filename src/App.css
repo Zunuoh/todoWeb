@@ -189,13 +189,14 @@ body{
   background-color: #fff;
   position: relative;
   overflow: hidden;
-  border: 3px solid;
+  border: 1px solid;
 }
 
 .signupHeaders{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 80px;
   color: #777;
   margin-top: -25px;
 }
@@ -219,8 +220,10 @@ body{
 
 .btnBox{
   width: 100%;
-  margin: 30px auto;
   text-align: center;
+ margin-top: 30px;
+  margin-left: 40px;
+  
 }
 
 .formButton{
@@ -228,7 +231,7 @@ body{
   height: 35px;
   margin: 0 10px;
   border-radius: 30px;
-  background: linear-gradient(to right, #286795, #285F9F);
+  background: linear-gradient(to right, #91628c, #3A2E39);
   border: 0;
   outline: none;
   color: #fff;
@@ -240,7 +243,7 @@ body{
 }
 
 .stepRow{
-  width: 454px;
+  width: 459px;
   height: 40px;
   margin: 0 auto;
   display: flex;
@@ -253,15 +256,15 @@ body{
 .stepCol{
   width: 220px;
   text-align: center;
-  color: #333;
+  color: white;
   position: relative;
 }
 
 #progress{
   position: absolute;
   height: 100%;
-  width: 120px;
-  background: linear-gradient(to right, #286795, #285F9F);
+  width: 240px;
+  background: linear-gradient(to right, #91628c, #3A2E39);
   transition: 1s;
 }
 
@@ -273,5 +276,5 @@ body{
   position: absolute;
   right: -20px;
   top: 0;
-  border-left: 20px solid #285F9F;
+  border-left: 20px solid #3A2E39;
 }
