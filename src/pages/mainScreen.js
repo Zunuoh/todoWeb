@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import AddTask from "../modals/addTaskModal";
 import DeleteTask from "../modals/deleteModal";
+import Signout from "../auth/signout";
 import { Button } from "react-bootstrap";
-import { Trash, Edit } from "react-feather";
+import { Trash, Edit, LogOut } from "react-feather";
 
 const taskList = [
   { id: "0", name: "Register courses" },
@@ -14,13 +15,17 @@ const MainScreen = () => {
   const [todos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  // const [todos, settodos] = useState([]);
-
-  // function addTodo(todo){
-  //   setTodos([todo, ...todos]);
-  // }
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
+    <div>
+       <div className="logOut" onClick={() => setShowLogoutModal(true)}>
+          <LogOut/>
+          <p style={{color:"#3A2E39", marginLeft:5 }}>
+            SIGN OUT
+          </p>
+      </div>
+      <Signout show={showLogoutModal} onClose={() => setShowLogoutModal(false)}/>
     <div className="mainContainer">
       <div className="mainHeader">
         <div style={{ fontSize: 30 }}>SCHOOL</div>
@@ -66,6 +71,7 @@ const MainScreen = () => {
             );
           })}
       </div>
+    </div>
     </div>
   );
 };
