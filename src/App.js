@@ -1,9 +1,8 @@
-// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeScreen from './pages/homeScreen';
 import SignIn from './auth/signin';
-// import AddTask 
+import SignUp from './auth/signup';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -11,7 +10,9 @@ function App() {
   <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignIn/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
         <Route path="/homescreen" element={<HomeScreen/>}/>
+       
       </Routes>
   
   </BrowserRouter>
