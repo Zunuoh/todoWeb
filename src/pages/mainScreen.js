@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AddTask from "../modals/addTaskModal";
 import DeleteTask from "../modals/deleteModal";
 import Signout from "../auth/signout";
 import { Button } from "react-bootstrap";
 import { Trash, Edit, LogOut } from "react-feather";
+import { GlobalContext } from "../context/GlobalState";
 
-const taskList = [
-  { id: "0", name: "Register courses" },
-  { id: "1", name: "Psychology class at 5pm" },
-  { id: "2", name: "Serminar" },
-];
+// const taskList = [
+//   { id: "0", name: "Register courses" },
+//   { id: "1", name: "Psychology class at 5pm" },
+//   { id: "2", name: "Serminar" },
+// ];
 
 const MainScreen = () => {
-  const [todos] = useState(taskList);
+  // const [todos, setTodos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+  const { users, deleteUser } = useContext(GlobalContext);
+  
   return (
     <div>
        <div className="logOut" onClick={() => setShowLogoutModal(true)}>
@@ -36,40 +39,41 @@ const MainScreen = () => {
           >
             Add Task
           </Button>
-          <AddTask show={showAddModal} onClose={() => setshowAddModal(false)} />
+          <AddTask show={showAddModal} onClose={() => setshowAddModal(false)}/>
         </div>
       </div>
 
       <div className="todos">
         <div style={{ fontSize: 25 }}>Todos:</div>
-
-        {todos &&
-          todos.map((task) => {
-            return (
-              <div className="taskDiv">
-                <div style={{ flex: 9, display: "flex" }}>
-                  <p>{task.name}</p>
-                </div>
-                <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
-                  <div style={{ flex: 1 }}>
-                    <Edit color="#BD33A4"/>
+                {users.map(user =>{
+                  return(
+                    <div className="taskDiv">
+              
+                    <div style={{ flex: 9, display: "flex" }}>
+                      <p>{user.name}</p>
+                    </div>
+                    <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+                      <div style={{ flex: 1 }}>
+                        <Edit color="#BD33A4"/>
+                      </div>
+                      <div
+                        style={{ flex: 1,  }}
+                        onClick={() => {
+                          setShowDeleteModal(true);
+                        }}
+                      >
+                        <Trash color = "#BD33A4" onClick={() => deleteUser(user.id)}/>
+                        <DeleteTask
+    
+                        />
+                           {/* <button onClick={() => deleteUser(user.id)}>jk</button> */}
+                      </div>
+                    </div>
                   </div>
-                  <div
-                    style={{ flex: 1,  }}
-                    onClick={() => {
-                      setShowDeleteModal(true);
-                    }}
-                  >
-                    <Trash color = "#BD33A4"/>
-                    <DeleteTask
-                      show={showDeleteModal}
-                      onClose={() => setShowDeleteModal(false)}
-                    />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                  )
+                 
+                })}
+              
       </div>
     </div>
     </div>

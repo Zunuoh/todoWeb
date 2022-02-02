@@ -4,10 +4,12 @@ import HomeScreen from './pages/homeScreen';
 import SignIn from './auth/signin';
 import SignUp from './auth/signup';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {GlobalProvider} from '../src/context/GlobalState';
 
 function App() {
   return (
-  <BrowserRouter>
+  <GlobalProvider>
+     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignIn/>}/>
         <Route path="/signup" element={<SignUp/>}/>
@@ -16,6 +18,8 @@ function App() {
       </Routes>
   
   </BrowserRouter>
+  </GlobalProvider>
+ 
 //  < SignIn/>
   // <HomeScreen/>
   );

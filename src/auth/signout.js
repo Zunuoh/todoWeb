@@ -14,7 +14,7 @@ const Signout = (props) => {
 
         <div className='modalBody'>
           <div>
-            <p style={{color:"#3A2E39", marginTop:30}}>Are you sure you want to sign out?</p>  
+            <p style={{color:"#3A2E39", marginTop:30, display:"flex", alignItems:"center", justifyContent:"center"}}>Are you sure you want to sign out?</p>  
           </div>
         </div>
         

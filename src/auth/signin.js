@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import SigninSVG from "./SigninSVG";
 import { Link } from "react-router-dom";
 
@@ -59,8 +59,8 @@ const SignIn = () => {
                     }}
                   >
                     Don't have an account?{" "}
-                    <Link to="/signup">
-                      <p style={{ marginLeft: 10 }}> Sign up</p>
+                    <Link to="/signup" style={{textDecoration:"none"}}>
+                      <p style={{ marginLeft: 10, color:"#3A2E39",}}> Sign up</p>
                     </Link>
                   </Form.Label>
                 </Form.Group>
