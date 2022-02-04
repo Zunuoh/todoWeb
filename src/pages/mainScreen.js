@@ -30,8 +30,9 @@ const MainScreen = () => {
       </div>
       <Signout show={showLogoutModal} onClose={() => setShowLogoutModal(false)}/>
     <div className="mainContainer">
+    <div style={{ fontSize: 30, justifyContent:"center", alignItems:"center", display:"flex", fontWeight:"bold", color:"#3A2E39" }}>TASKIFY</div>
       <div className="mainHeader">
-        <div style={{ fontSize: 30 }}>SCHOOL</div>
+        <div style={{ fontSize: 30 }}></div>
         <div>
           <Button
             style={{ backgroundColor: "#BD33A4" }}

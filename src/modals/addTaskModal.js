@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
+import {useNavigate} from 'react-router-dom';
+import {v4 as uuid} from 'uuid'
 
 const AddTaskModal = (props) => {
-  const [input, setInput] = useState("");
-
+  // const [input, setInput] = useState("");
+  const [name, setName] = useState("");
+  const { addUser } = useContext(GlobalContext);
+  const navigate = useNavigate(); 
   const handleChange = e => {
-      setInput(e.target.value);
+      setName(e.target.value);
   }
 
-  const handleSubmit = (e) => {
-    e.preventDeafult();
-
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input,
-    });
-
-    setInput('');
+  const handleSubmit = () => {
+    const newUser = {
+      id:uuid(),
+      name: name
+    }
+    addUser(newUser);
+    return
+    // navigate('/');
   };
   if (!props.show) {
     return null;
@@ -39,8 +43,8 @@ const AddTaskModal = (props) => {
                 type="text"
                 placeholder="Enter task"
                 className="todo-taskName"
-                name="task"
-                value={input}
+                name="name"
+                value={name}
                 onChange={handleChange}
               />
             </form>
@@ -48,7 +52,7 @@ const AddTaskModal = (props) => {
         </div>
 
         <div className="footer">
-          <button className="todo-button">Add</button>
+          <button className="todo-button" type="submit" onClick={handleSubmit}>Add</button>
           <button onClick={props.onClose}>Close</button>
         </div>
       </div>
