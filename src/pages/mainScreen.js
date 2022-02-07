@@ -59,9 +59,9 @@ const MainScreen = () => {
                       <p>{user.name}</p>
                     </div>
                     <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
-                      <div style={{ flex: 1 }}>
-                        <Edit color="#BD33A4"/>
-                        <EditModal/>
+                      <div style={{ flex: 1 }} onClick={()=>setShowEditModal(true)}>
+                        <Edit color="#BD33A4" />
+                        <EditModal show={showEditModal} onClose={()=> setShowEditModal(false)}/>
                       </div>
                       <div
                         style={{ flex: 1,  }}
