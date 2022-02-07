@@ -3,8 +3,9 @@ import AddTask from "../modals/addTaskModal";
 import DeleteTask from "../modals/deleteModal";
 import Signout from "../auth/signout";
 import { Button } from "react-bootstrap";
-import { Trash, Edit, LogOut } from "react-feather";
+import { Trash, Edit, User } from "react-feather";
 import { GlobalContext } from "../context/GlobalState";
+import EditModal from "../modals/editModal";
 
 // const taskList = [
 //   { id: "0", name: "Register courses" },
@@ -16,14 +17,15 @@ const MainScreen = () => {
   // const [todos, setTodos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const { users, deleteUser } = useContext(GlobalContext);
   
   return (
-    <div>
+    <div style={{marginBottom:30}}>
        <div className="logOut" onClick={() => setShowLogoutModal(true)}>
-          <LogOut/>
+          <User/>
           <p style={{color:"#3A2E39", marginLeft:5 }}>
             SIGN OUT
           </p>
@@ -45,8 +47,11 @@ const MainScreen = () => {
       </div>
 
       <div className="todos">
+      <div>
+          <h5>hey there, you can add  your tasks</h5>
+        </div>
         <div style={{ fontSize: 25 }}>Todos:</div>
-                {users.map(user =>{
+                        {users.map(user =>{
                   return(
                     <div className="taskDiv">
               
@@ -56,18 +61,15 @@ const MainScreen = () => {
                     <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
                       <div style={{ flex: 1 }}>
                         <Edit color="#BD33A4"/>
+                        <EditModal/>
                       </div>
                       <div
                         style={{ flex: 1,  }}
-                        onClick={() => {
-                          setShowDeleteModal(true);
-                        }}
+                        // onClick={() => {
+                        //   setShowDeleteModal(true);
+                        // }}
                       >
-                        <Trash color = "#BD33A4" onClick={() => deleteUser(user.id)}/>
-                        <DeleteTask
-    
-                        />
-                           {/* <button onClick={() => deleteUser(user.id)}>jk</button> */}
+                        <Trash color = "#BD33A4" onClick={() => deleteUser(user.id)}/> 
                       </div>
                     </div>
                   </div>

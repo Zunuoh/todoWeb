@@ -141,6 +141,7 @@ body{
   border: 1px solid #3A2E39;
   padding: 10px;
   border-radius: 25px;
+  outline: none;
 }
 
 .modal-title{
