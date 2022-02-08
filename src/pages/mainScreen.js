@@ -16,7 +16,7 @@ import EditModal from "../modals/editModal";
 const MainScreen = () => {
   // const [todos, setTodos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  // const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
@@ -64,7 +64,7 @@ const MainScreen = () => {
                         <EditModal show={showEditModal} onClose={()=> setShowEditModal(false)}/>
                       </div>
                       <div
-                        style={{ flex: 1,  }}
+                        style={{ flex: 1 }}
                         // onClick={() => {
                         //   setShowDeleteModal(true);
                         // }}

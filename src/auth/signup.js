@@ -23,13 +23,7 @@ const SignUp = () => {
         <Col>
           <div>
             <h1
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "20%",
-                color: "#3A2E39",
-              }}
+              className="signupHeader"
             >
               Hey there! We are glad you are here
             </h1>

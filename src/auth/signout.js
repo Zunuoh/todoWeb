@@ -1,9 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Signout = (props) => {
     if (!props.show){
         return null
     }
+
+    // const navigate = useNavigate();
+
+    // const handleSubmit = () =>{
+    //   navigate("/signout")
+    // }
   return (
     <div className='modalBackground'>
     <div className='modalContainer'>
@@ -19,7 +26,9 @@ const Signout = (props) => {
         </div>
         
         <div className='footer'>
-        <button className='todo-button'>Yes</button>
+          <Link to="/">
+          <button className='todo-button'>Yes</button>
+          </Link>
         <button onClick={props.onClose} >Cancel</button>
         </div>
     </div>
