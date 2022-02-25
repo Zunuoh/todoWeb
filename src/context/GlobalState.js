@@ -33,6 +33,13 @@ const addUser = (user) =>{
     })
 }
 
+const addDescription = (descr) =>{
+    dispatch({
+        type: 'ADD_DESCRIPTION',
+        payload: descr
+    })
+}
+
 const editUser = (user) =>{
     dispatch({
 
@@ -44,7 +51,8 @@ const editUser = (user) =>{
            users: state.users,
            deleteUser,
            addUser, 
-           editUser
+           editUser,
+           addDescription
        }}>
            {children}
        </GlobalContext.Provider>

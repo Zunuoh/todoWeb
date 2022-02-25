@@ -12,6 +12,11 @@ export default (state, action) => {
                 users: [action.payload, ...state.users]
             }
 
+        case 'ADD_DESCRIPTION':
+            return{
+                users: [action.payload, ...state.users]
+            }
+
         case 'EDIT_USER':
             const updateUser = action.payload;
             const updateUsers = state.users.map(user =>{

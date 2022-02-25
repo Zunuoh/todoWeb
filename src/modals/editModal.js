@@ -1,9 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import {useNavigate} from 'react-router-dom';
 import {v4 as uuid} from 'uuid'
 
 const EditModal = (props) => {
+  const [selectedUser, setSelectedUser] = useState({
+    id: '',
+    name: ''
+  });
+  const { users, editUser } = useContext(GlobalContext);
+
+
+  const handleChange = e => {
+     
+  }
+
+  const handleSubmit = () => {
+    
+   
+    props.onClose();
+    return
+    // navigate('/');
+  };
   if (!props.show) {
     return null;
   }
@@ -16,7 +34,7 @@ const EditModal = (props) => {
 
         <div className="modalBody">
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <form className="todo-form">
+            <form className="todo-form" onSubmit={handleSubmit}>
               <label
                 style={{ fontSize: 20, fontWeight: "bold", color: "#3A2E39" }}
               >
@@ -26,7 +44,9 @@ const EditModal = (props) => {
                 type="text"
                 placeholder="Enter task"
                 className="todo-taskName"
-                name="name"
+                // name="name"
+                // value={selectedUser.name}
+                onChange={handleChange}
              
               
               />
