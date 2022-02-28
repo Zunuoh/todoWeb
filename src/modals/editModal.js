@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import {useNavigate} from 'react-router-dom';
 import {v4 as uuid} from 'uuid'
@@ -8,26 +8,28 @@ const EditModal = (props) => {
     id: '',
     name: ''
   });
-  const { users, editUser } = useContext(GlobalContext);
+  const { tasks, editTask } = useContext(GlobalContext);
+  const [taskName, setTaskName] = useState(props.task.name);
 
-
-  const handleChange = e => {
-     
+  const handleNameChange = (e) => {
+     setTaskName(e.target.value);
   }
 
   const handleSubmit = () => {
-    
-   
+    editTask({
+      id: props.task.id,
+      name: taskName,
+    });
     props.onClose();
     return
-    // navigate('/');
   };
+
   if (!props.show) {
     return null;
   }
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
+      <div className="editModalContainer">
         <div className="title">
           <h4 className="modal-title">EDIT TASK</h4>
         </div>
@@ -44,9 +46,10 @@ const EditModal = (props) => {
                 type="text"
                 placeholder="Enter task"
                 className="todo-taskName"
+                defaultValue={props.task.name}
                 // name="name"
                 // value={selectedUser.name}
-                onChange={handleChange}
+                onChange={handleNameChange}
              
               
               />
@@ -55,7 +58,7 @@ const EditModal = (props) => {
         </div>
 
         <div className="footer">
-          <button className="todo-button" type="submit" >Add</button>
+          <button className="todo-button" type="submit" onClick={handleSubmit}>Edit</button>
           <button onClick={props.onClose}>Close</button>
         </div>
       </div>

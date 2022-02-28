@@ -20,7 +20,7 @@ const MainScreen = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-  const { users, deleteUser } = useContext(GlobalContext);
+  const { tasks, deleteTask } = useContext(GlobalContext);
 
   return (
     <div style={{ marginBottom: 30, paddingLeft:170,  }}>
@@ -65,38 +65,42 @@ const MainScreen = () => {
           <div style={{ fontSize: 25, marginBottom:20 }}>Todos:</div>
           {/* <div>OOPS....you have no tasks yet</div> */}
           <div style={{ display: "flex", flexDirection: "row", gap:50, flexWrap:"wrap" }}>
-            {users.map((user) => {
+            {tasks.map((task) => {
+              console.log(task.name);
               return (
-                <div className="taskDiv">
-                  <div style={{ flex: 9, display: "flex", marginTop: 20 }}>
-                    <p>{user.name}</p>
-                  </div>
-                  <div
-                    style={{ flex: 1, display: "flex", flexDirection: "row" }}
-                  >
-                    <div
-                      style={{ flex: 1 }}
-                      onClick={() => setShowEditModal(true)}
-                    >
-                      <Edit color="#BD33A4" />
-                      <EditModal
-                        show={showEditModal}
-                        onClose={() => setShowEditModal(false)}
-                      />
+                <>
+                  <div className="taskDiv" key={task.id}>
+                    <div style={{ flex: 9, display: "flex", marginTop: 20 }}>
+                      <p>{task.name}</p>
                     </div>
                     <div
-                      style={{ flex: 1 }}
-                      // onClick={() => {
-                      //   setShowDeleteModal(true);
-                      // }}
+                      style={{ flex: 1, display: "flex", flexDirection: "row" }}
                     >
-                      <Trash
-                        color="#BD33A4"
-                        onClick={() => deleteUser(user.id)}
-                      />
+                      <div
+                        style={{ flex: 1 }}
+                        onClick={() => setShowEditModal(true)}
+                      >
+                        <Edit color="#BD33A4" />
+                      </div>
+                      <div
+                        style={{ flex: 1 }}
+                        // onClick={() => {
+                        //   setShowDeleteModal(true);
+                        // }}
+                      >
+                        <Trash
+                          color="#BD33A4"
+                          onClick={() => deleteTask(task.id)}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <EditModal
+                    show={showEditModal}
+                    onClose = {() => setShowEditModal(false)}
+                    task={task}
+                  />
+                </>
               );
             })}
           </div>

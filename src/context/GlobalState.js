@@ -3,7 +3,7 @@ import AppReducer from './AppReducer';
 
 // initial state
 const initialState = {
-    users: [
+    tasks: [
         // {id:1, name:"User One"},
         // {id:2, name:"User Two"},
         // {id:3, name:"User Three"}
@@ -16,9 +16,10 @@ export const GlobalContext = createContext(initialState);
 // Provider Component
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+    // dispatch changes the state
 
 // create actions
-const deleteUser = (id) =>{
+const deleteTask = (id) =>{
     dispatch({
         type: 'REMOVE_USER',
         payload: id
@@ -26,7 +27,7 @@ const deleteUser = (id) =>{
 }
 
 
-const addUser = (user) =>{
+const addTask = (user) =>{
     dispatch({
         type: 'ADD_USER',
         payload: user
@@ -40,18 +41,19 @@ const addDescription = (descr) =>{
     })
 }
 
-const editUser = (user) =>{
+const editTask = (task) =>{
     dispatch({
-
+        type: 'EDIT_TASK',
+        payload: task,
     })
 }
 
     return(
        <GlobalContext.Provider value={{
-           users: state.users,
-           deleteUser,
-           addUser, 
-           editUser,
+           tasks: state.tasks,
+           deleteTask,
+           addTask,
+           editTask,
            addDescription
        }}>
            {children}

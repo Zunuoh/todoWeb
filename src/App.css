@@ -87,6 +87,18 @@ body{
   margin-bottom: 10%;
 }
 
+.editModalContainer {
+  width: 450px;
+  height: 250px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 10%;
+}
+
 /* .modalContainer .title {
   display: inline-block;
   text-align: center;
@@ -123,6 +135,34 @@ body{
 }
 
 .modalContainer .footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: #3A2E39;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.editModalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.editModalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editModalContainer .footer button {
   width: 150px;
   height: 45px;
   margin: 10px;

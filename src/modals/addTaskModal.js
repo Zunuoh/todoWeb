@@ -7,8 +7,9 @@ const AddTaskModal = (props) => {
   // const [input, setInput] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const { addUser } = useContext(GlobalContext);
+  const { addTask } = useContext(GlobalContext);
   const navigate = useNavigate(); 
+
   const handleChange = e => {
       setName(e.target.value);
   }
@@ -18,12 +19,18 @@ const AddTaskModal = (props) => {
       id:uuid(),
       name: name
     }
-    addUser(newUser);
+    addTask(newUser);
     setName('');
     props.onClose();
     return
-    // navigate('/');
   };
+
+  const handleDesc = () => {
+    const newDesc = {
+      // desc
+    }
+  }
+
   if (!props.show) {
     return null;
   }
