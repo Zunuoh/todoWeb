@@ -4,11 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {v4 as uuid} from 'uuid'
 
 const EditModal = (props) => {
-  const [selectedUser, setSelectedUser] = useState({
-    id: '',
-    name: ''
-  });
-  const { tasks, editTask } = useContext(GlobalContext);
+  const { editTask } = useContext(GlobalContext);
   const [taskName, setTaskName] = useState(props.task.name);
 
   const handleNameChange = (e) => {
@@ -29,7 +25,7 @@ const EditModal = (props) => {
   }
   return (
     <div className="modalBackground">
-      <div className="editModalContainer">
+      <div className="modalContainer">
         <div className="title">
           <h4 className="modal-title">EDIT TASK</h4>
         </div>
@@ -38,9 +34,9 @@ const EditModal = (props) => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <form className="todo-form" onSubmit={handleSubmit}>
               <label
-                style={{ fontSize: 20, fontWeight: "bold", color: "#3A2E39" }}
+                style={{ fontSize: 20,  color: "#3A2E39" }}
               >
-                Enter task:
+                Task:
               </label>
               <input
                 type="text"
@@ -50,8 +46,18 @@ const EditModal = (props) => {
                 // name="name"
                 // value={selectedUser.name}
                 onChange={handleNameChange}
-             
-              
+              />
+
+              <label
+                style={{ fontSize: 20,  color: "#3A2E39", fontFamily: 'Montserrat, sans-serif', marginTop:30 }}
+              >
+                Description:
+              </label>
+              <textarea style={{height:70}}
+                className="todo-taskName"
+                name="description"
+                defaultValue={props.task.description}
+                // onChange={descriptionNameChange}
               />
             </form>
           </div>

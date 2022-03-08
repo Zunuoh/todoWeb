@@ -10,14 +10,19 @@ const AddTaskModal = (props) => {
   const { addTask } = useContext(GlobalContext);
   const navigate = useNavigate(); 
 
-  const handleChange = e => {
+  const taskNameChange = e => {
       setName(e.target.value);
   }
+
+  const descriptionNameChange = e => {
+    setDescription(e.target.value);
+}
 
   const handleSubmit = () => {
     const newUser = {
       id:uuid(),
-      name: name
+      name: name,
+      description: description
     }
     addTask(newUser);
     setName('');
@@ -55,7 +60,7 @@ const AddTaskModal = (props) => {
                 className="todo-taskName"
                 name="name"
                 value={name}
-                onChange={handleChange}
+                onChange={taskNameChange}
               />
 
               <label
@@ -67,7 +72,7 @@ const AddTaskModal = (props) => {
                 className="todo-taskName"
                 name="description"
                 value={description}
-                onChange={handleChange}
+                onChange={descriptionNameChange}
               />
             </form>
           </div>

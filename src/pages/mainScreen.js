@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
 import AddTask from "../modals/addTaskModal";
 import DeleteTask from "../modals/deleteModal";
-import Signout from "../auth/signout";
+// import Signout from "../auth/signout";
 import { Button } from "react-bootstrap";
-import { Trash, Edit, User } from "react-feather";
+import { Trash, Edit, Plus } from "react-feather";
 import { GlobalContext } from "../context/GlobalState";
 import EditModal from "../modals/editModal";
+import ViewDescriptionModal from "../modals/viewDescriptionModal";
+
 
 // const taskList = [
 //   { id: "0", name: "Register courses" },
@@ -16,9 +18,10 @@ import EditModal from "../modals/editModal";
 const MainScreen = () => {
   // const [todos, setTodos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
-  // const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showViewDescriptionModal, setViewDescriptionModal] = useState(false);
+  
 
   const { tasks, deleteTask } = useContext(GlobalContext);
 
@@ -68,14 +71,24 @@ const MainScreen = () => {
             {tasks.map((task) => {
               console.log(task.name);
               return (
-                <>
+                  <>
                   <div className="taskDiv" key={task.id}>
                     <div style={{ flex: 9, display: "flex", marginTop: 20 }}>
+                      <div className="taskTitle">
                       <p>{task.name}</p>
+                      </div>
+                    
+                      {/* <p>{task.description}</p> */}
                     </div>
                     <div
                       style={{ flex: 1, display: "flex", flexDirection: "row" }}
                     >
+                      <div
+                        style={{ flex: 1 }}
+                        onClick={() => setViewDescriptionModal(true)}
+                      >
+                        <Plus color="#BD33A4" />
+                      </div>
                       <div
                         style={{ flex: 1 }}
                         onClick={() => setShowEditModal(true)}
@@ -100,7 +113,17 @@ const MainScreen = () => {
                     onClose = {() => setShowEditModal(false)}
                     task={task}
                   />
-                </>
+                  <DeleteTask
+                  show={showDeleteModal}
+                  onClose = {() => setShowDeleteModal(false)}
+                  />
+                  <ViewDescriptionModal
+                  show={showViewDescriptionModal}
+                  onClose = {() => setViewDescriptionModal(false)}
+                  
+                  />
+                 
+               </>
               );
             })}
           </div>
