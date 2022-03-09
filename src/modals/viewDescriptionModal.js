@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
-const ViewDescriptionModal = ( props ) => {
-    if (!props.show) {
-        return null;
-      }
+const ViewDescriptionModal = (props) => {
+  useEffect(() => {
+    console.log('props: ', props.task.name);
+
+    return () => {
+      console.log("");
+    };
+  }, [props]);
+
+  if (!props.show) {
+    return null;
+  }
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -12,9 +21,16 @@ const ViewDescriptionModal = ( props ) => {
         </div>
 
         <div className="modalBody">
-          <div style={{ display: "flex", flexDirection: "column", display:"flex", justifyContent:"center", alignItems:"center" }}>
-            <div style={{fontWeight:"bold", fontSize:20}}>kdd</div>
-            <div>djddndl</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ fontWeight: "bold", fontSize: 20 }}>kdd</div>
+            <div>{props.task.description}</div>
           </div>
         </div>
 
@@ -24,7 +40,7 @@ const ViewDescriptionModal = ( props ) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ViewDescriptionModal
+export default ViewDescriptionModal;

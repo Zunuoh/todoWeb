@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import {useNavigate} from 'react-router-dom';
-import {v4 as uuid} from 'uuid'
+// import {useNavigate} from 'react-router-dom';
+// import {v4 as uuid} from 'uuid'
 
 const EditModal = (props) => {
   const { editTask } = useContext(GlobalContext);

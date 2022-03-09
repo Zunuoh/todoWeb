@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 import {v4 as uuid} from 'uuid'
 
 const AddTaskModal = (props) => {
@@ -8,7 +8,7 @@ const AddTaskModal = (props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const { addTask } = useContext(GlobalContext);
-  const navigate = useNavigate(); 
+  // const navigate = useNavigate(); 
 
   const taskNameChange = e => {
       setName(e.target.value);
@@ -26,15 +26,10 @@ const AddTaskModal = (props) => {
     }
     addTask(newUser);
     setName('');
+    setDescription('');
     props.onClose();
     return
   };
-
-  const handleDesc = () => {
-    const newDesc = {
-      // desc
-    }
-  }
 
   if (!props.show) {
     return null;
