@@ -15,9 +15,9 @@ const ViewDescriptionModal = (props) => {
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer">
+      <div className="descModalContainer">
         <div className="title">
-          <h4 className="modal-title">VIEW DESCRIPTION</h4>
+          <h4 className="modal-title">{props.task.name}</h4>
         </div>
 
         <div className="modalBody">
@@ -29,7 +29,7 @@ const ViewDescriptionModal = (props) => {
               alignItems: "center",
             }}
           >
-            <div style={{ fontWeight: "bold", fontSize: 20 }}>kdd</div>
+            <div style={{ fontWeight: "bold", fontSize: 20 }}></div>
             <div>{props.task.description}</div>
           </div>
         </div>

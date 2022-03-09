@@ -94,7 +94,7 @@ body{
   margin-bottom: 10%;
 }
 
-.editModalContainer {
+.descModalContainer {
   width: 350px;
   height: 250px;
   border-radius: 12px;
@@ -153,7 +153,7 @@ body{
   cursor: pointer;
 }
 
-.editModalContainer .body {
+.descModalContainer .body {
   flex: 50%;
   display: flex;
   justify-content: center;
@@ -162,14 +162,15 @@ body{
   text-align: center;
 }
 
-.editModalContainer .footer {
-  flex: 20%;
+.descModalContainer .footer {
+  flex: 30%;
+  /* margin-top: 35%; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.editModalContainer .footer button {
+.descModalContainer .footer button {
   width: 150px;
   height: 45px;
   margin: 10px;

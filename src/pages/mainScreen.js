@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import AddTask from "../modals/addTaskModal";
-import DeleteTask from "../modals/deleteModal";
-// import Signout from "../auth/signout";
-import { Button } from "react-bootstrap";
-import { Trash, Edit, Plus } from "react-feather";
 import { GlobalContext } from "../context/GlobalState";
-import EditModal from "../modals/editModal";
-import ViewDescriptionModal from "../modals/viewDescriptionModal";
+import TodoStates from "./todoStates";
+import { Button } from "react-bootstrap";
+// import { Trash, Edit, Plus } from "react-feather";
+// import DeleteTask from "../modals/deleteModal";
+// import EditModal from "../modals/editModal";
+// import ViewDescriptionModal from "../modals/viewDescriptionModal";
 
 // const taskList = [
 //   { id: "0", name: "Register courses" },
@@ -17,9 +17,9 @@ import ViewDescriptionModal from "../modals/viewDescriptionModal";
 const MainScreen = () => {
   // const [todos, setTodos] = useState(taskList);
   const [showAddModal, setshowAddModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [showViewDescriptionModal, setViewDescriptionModal] = useState(false);
+  // const [showDeleteModal, setShowDeleteModal] = useState(false);
+  // const [showEditModal, setShowEditModal] = useState(false);
+  // const [showViewDescriptionModal, setViewDescriptionModal] = useState(false);
 
   const { tasks, deleteTask } = useContext(GlobalContext);
 
@@ -74,75 +74,27 @@ const MainScreen = () => {
           <div style={{ fontSize: 25, marginBottom: 20 }}>Todos:</div>
           {/* <div>OOPS....you have no tasks yet</div> */}
           <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: 50,
-              flexWrap: "wrap",
-            }}
-          >
-            {tasks.map((task) => {
-              console.log(task.name);
-              return (
-                <>
-                  <div className="taskDiv" key={task.id}>
-                    <div style={{ flex: 9, display: "flex", marginTop: 20 }}>
-                      <div className="taskTitle">
-                        <p>{task.name}</p>
-                      </div>
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: 50,
+                flexWrap: "wrap",
+                marginTop:20
 
-                      {/* <p>{task.description}</p> */}
-                    </div>
-                    <div
-                      style={{ flex: 1, display: "flex", flexDirection: "row" }}
-                    >
-                      <div
-                        style={{ flex: 1 }}
-                        onClick={() => setViewDescriptionModal(true)}
-                      >
-                        <Plus color="#BD33A4" />
-                      </div>
-                      <div
-                        style={{ flex: 1 }}
-                        onClick={() => setShowEditModal(true)}
-                      >
-                        <Edit color="#BD33A4" />
-                      </div>
-                      <div
-                        style={{ flex: 1 }}
-                        // onClick={() => {
-                        //   setShowDeleteModal(true);
-                        // }}
-                      >
-                        <Trash
-                          color="#BD33A4"
-                          onClick={() => deleteTask(task.id)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <EditModal
-                    show={showEditModal}
-                    onClose={() => setShowEditModal(false)}
-                    task={task}
-                  />
-                  <DeleteTask
-                    show={showDeleteModal}
-                    onClose={() => setShowDeleteModal(false)}
-                  />
-                  <ViewDescriptionModal
-                    show={showViewDescriptionModal}
-                    onClose={() => setViewDescriptionModal(false)}
-                    task={task}
-                  />
-                </>
-              );
-            })}
+              }}>
+          {tasks.map((task) => {
+            return( 
+            
+            <TodoStates task={task}/>
+           
+            )
+           
+          })}
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default MainScreen;
