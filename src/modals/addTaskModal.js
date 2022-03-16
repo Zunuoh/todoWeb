@@ -56,6 +56,7 @@ const AddTaskModal = (props) => {
                 name="name"
                 value={name}
                 onChange={taskNameChange}
+                maxLength="20"
               />
 
               <label

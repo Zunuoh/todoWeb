@@ -95,7 +95,7 @@ body{
 }
 
 .descModalContainer {
-    width: 350px;
+  width: 50ch;
   /* height: 250px; */
   display: flex;
   min-height: 20ch;

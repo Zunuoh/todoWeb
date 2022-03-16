@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import EditModal from "../modals/editModal";
 import ViewDescriptionModal from "../modals/viewDescriptionModal";
 import { Trash, Edit, Eye } from "react-feather";
+import {OverlayTrigger, Tooltip} from "react-bootstrap"
 import DeleteTask from "../modals/deleteModal";
 import { GlobalContext } from "../context/GlobalState";
 
@@ -25,27 +26,38 @@ const TodoStates = (props) => {
               style={{ flex: 1, display: "flex", flexDirection: "row" }}
             >
               <div
-                style={{ flex: 1 }}
+                style={{ flex: 1, marginRight:4}}
                 onClick={() => setViewDescriptionModal(true)}
               >
-                <Eye color="#BD33A4" />
+                 <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip id="button-tooltip-2">View</Tooltip>}
+              >
+                 <Eye color="#BD33A4" />
+              </OverlayTrigger>
               </div>
+
               <div
                 style={{ flex: 1 }}
                 onClick={() => setShowEditModal(true)}
               >
+                <OverlayTrigger placement="bottom" overlay={<Tooltip id="button-tooltip-2">Edit</Tooltip>}>
                 <Edit color="#BD33A4" />
+                </OverlayTrigger>
               </div>
+
               <div
-                style={{ flex: 1 }}
+                style={{ flex: 1,marginLeft:2 }}
                 // onClick={() => {
                 //   setShowDeleteModal(true);
                 // }}
               >
-                <Trash
+                 <OverlayTrigger placement="bottom" overlay={<Tooltip id="button-tooltip-2">Delete</Tooltip>}>
+                 <Trash
                   color="#BD33A4"
                   onClick={() => deleteTask(props.task.id)}
                 />
+                </OverlayTrigger>
               </div>
             </div>
           </div>
