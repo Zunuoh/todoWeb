@@ -38,7 +38,7 @@ const MainScreen = () => {
               style={{
                 backgroundColor: "#BD33A4",
                 fontFamily: "Montserrat, sans-serif",
-                borderColor:"#BD33A4"
+                borderColor: "#BD33A4",
               }}
               onClick={() => setshowAddModal(true)}
             >
@@ -61,27 +61,22 @@ const MainScreen = () => {
           {/* {() ? () : ()} */}
           {/* <div>OOPS....you have no tasks yet</div> */}
           <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: 50,
-                flexWrap: "wrap",
-                marginTop:20
-
-              }}>
-          {tasks.map((task) => {
-            return( 
-            
-            <TodoStates task={task}/>
-           
-            )
-           
-          })}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 50,
+              flexWrap: "wrap",
+              marginTop: 20,
+            }}
+          >
+            {tasks.map((task) => {
+              return <TodoStates task={task} />;
+            })}
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default MainScreen;

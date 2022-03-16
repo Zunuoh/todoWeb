@@ -35,7 +35,7 @@ const SideCollection = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    color:"#BD33A4"
+                    color: "#BD33A4",
                   }}
                 >
                   {collection.name}

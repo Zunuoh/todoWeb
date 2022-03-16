@@ -1,34 +1,34 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 // import {useNavigate} from 'react-router-dom';
-import {v4 as uuid} from 'uuid'
+import { v4 as uuid } from "uuid";
 
 const AddTaskModal = (props) => {
   // const [input, setInput] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const { addTask } = useContext(GlobalContext);
-  // const navigate = useNavigate(); 
+  // const navigate = useNavigate();
 
-  const taskNameChange = e => {
-      setName(e.target.value);
-  }
+  const taskNameChange = (e) => {
+    setName(e.target.value);
+  };
 
-  const descriptionNameChange = e => {
+  const descriptionNameChange = (e) => {
     setDescription(e.target.value);
-}
+  };
 
   const handleSubmit = () => {
     const newUser = {
-      id:uuid(),
+      id: uuid(),
       name: name,
-      description: description
-    }
+      description: description,
+    };
     addTask(newUser);
-    setName('');
-    setDescription('');
+    setName("");
+    setDescription("");
     props.onClose();
-    return
+    return;
   };
 
   if (!props.show) {
@@ -45,7 +45,12 @@ const AddTaskModal = (props) => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <form className="todo-form" onSubmit={handleSubmit}>
               <label
-                style={{ fontSize: 20, fontWeight: "bold", color: "#3A2E39", fontFamily: 'Montserrat, sans-serif' }}
+                style={{
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  color: "#3A2E39",
+                  fontFamily: "Montserrat, sans-serif",
+                }}
               >
                 Enter task:
               </label>
@@ -60,11 +65,18 @@ const AddTaskModal = (props) => {
               />
 
               <label
-                style={{ fontSize: 20, fontWeight: "bold", color: "#3A2E39", fontFamily: 'Montserrat, sans-serif', marginTop:30 }}
+                style={{
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  color: "#3A2E39",
+                  fontFamily: "Montserrat, sans-serif",
+                  marginTop: 30,
+                }}
               >
                 Enter description:
               </label>
-              <textarea style={{height:70}}
+              <textarea
+                style={{ height: 70 }}
                 className="todo-taskName"
                 name="description"
                 value={description}
@@ -75,8 +87,20 @@ const AddTaskModal = (props) => {
         </div>
 
         <div className="footer">
-          <button className="todo-button" type="submit" onClick={handleSubmit} style={{fontFamily: 'Montserrat, sans-serif'}}>Add</button>
-          <button onClick={props.onClose} style={{fontFamily: 'Montserrat, sans-serif'}}>Close</button>
+          <button
+            className="todo-button"
+            type="submit"
+            onClick={handleSubmit}
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            Add
+          </button>
+          <button
+            onClick={props.onClose}
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

@@ -1,60 +1,59 @@
-import React, {createContext,  useReducer} from 'react';
-import AppReducer from './AppReducer';
+import React, { createContext, useReducer } from "react";
+import AppReducer from "./AppReducer";
 
 // initial state
 const initialState = {
-    tasks: [
-        
-    ]
+  tasks: [],
 };
 
 // create context
 export const GlobalContext = createContext(initialState);
 
 // Provider Component
-export const GlobalProvider = ({children}) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState);
-    // dispatch changes the state
+export const GlobalProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
+  // dispatch changes the state
 
-// create actions
-const deleteTask = (id) =>{
+  // create actions
+  const deleteTask = (id) => {
     dispatch({
-        type: 'REMOVE_USER',
-        payload: id
-    })
-}
+      type: "REMOVE_USER",
+      payload: id,
+    });
+  };
 
-
-const addTask = (user) =>{
+  const addTask = (user) => {
     dispatch({
-        type: 'ADD_USER',
-        payload: user
-    })
-}
+      type: "ADD_USER",
+      payload: user,
+    });
+  };
 
-const addDescription = (descr) =>{
+  const addDescription = (descr) => {
     dispatch({
-        type: 'ADD_DESCRIPTION',
-        payload: descr
-    })
-}
+      type: "ADD_DESCRIPTION",
+      payload: descr,
+    });
+  };
 
-const editTask = (task) =>{
+  const editTask = (task) => {
     dispatch({
-        type: 'EDIT_TASK',
-        payload: task,
-    })
-}
+      type: "EDIT_TASK",
+      payload: task,
+    });
+  };
 
-    return(
-       <GlobalContext.Provider value={{
-           tasks: state.tasks,
-           deleteTask,
-           addTask,
-           editTask,
-           addDescription
-       }}>
-           {children}
-       </GlobalContext.Provider>
-    )
-}
+  return (
+    <GlobalContext.Provider
+      value={{
+        tasks: state.tasks,
+        deleteTask,
+        addTask,
+        editTask,
+        addDescription,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};

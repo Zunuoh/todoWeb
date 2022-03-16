@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const ViewDescriptionModal = (props) => {
   useEffect(() => {
-    console.log('props: ', props.task.name);
+    console.log("props: ", props.task.name);
 
     return () => {
       console.log("");
@@ -17,7 +17,15 @@ const ViewDescriptionModal = (props) => {
     <div className="modalBackground">
       <div className="descModalContainer">
         <div className="title">
-          <h4 style={{fontWeight:"bold", display:"flex", justifyContent:"center"}}>{props.task.name}</h4>
+          <h4
+            style={{
+              fontWeight: "bold",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {props.task.name}
+          </h4>
         </div>
 
         <div className="modalBody">
