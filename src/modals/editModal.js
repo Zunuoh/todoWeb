@@ -6,18 +6,24 @@ import { GlobalContext } from "../context/GlobalState";
 const EditModal = (props) => {
   const { editTask } = useContext(GlobalContext);
   const [taskName, setTaskName] = useState(props.task.name);
+  const [taskDesc, setTaskDesc] = useState(props.task.description);
 
   const handleNameChange = (e) => {
-     setTaskName(e.target.value);
-  }
+    setTaskName(e.target.value);
+  };
+  const handleDescChange = (e) => {
+    setTaskDesc(e.target.value);
+  };
 
   const handleSubmit = () => {
     editTask({
       id: props.task.id,
       name: taskName,
+      description: taskDesc,
     });
+    // setTaskName('');
     props.onClose();
-    return
+    return;
   };
 
   if (!props.show) {
@@ -33,11 +39,7 @@ const EditModal = (props) => {
         <div className="modalBody">
           <div style={{ display: "flex", flexDirection: "column" }}>
             <form className="todo-form" onSubmit={handleSubmit}>
-              <label
-                style={{ fontSize: 20,  color: "#3A2E39" }}
-              >
-                Task:
-              </label>
+              <label style={{ fontSize: 20, color: "#3A2E39" }}>Task:</label>
               <input
                 type="text"
                 placeholder="Enter task"
@@ -49,13 +51,20 @@ const EditModal = (props) => {
               />
 
               <label
-                style={{ fontSize: 20,  color: "#3A2E39", fontFamily: 'Montserrat, sans-serif', marginTop:30 }}
+                style={{
+                  fontSize: 20,
+                  color: "#3A2E39",
+                  fontFamily: "Montserrat, sans-serif",
+                  marginTop: 30,
+                }}
               >
                 Description:
               </label>
-              <textarea style={{height:70}}
+              <textarea
+                style={{ height: 70 }}
                 className="todo-taskName"
                 name="description"
+                onChange={handleDescChange}
                 defaultValue={props.task.description}
                 // onChange={descriptionNameChange}
               />
@@ -64,8 +73,17 @@ const EditModal = (props) => {
         </div>
 
         <div className="footer">
-          <button className="todo-button" type="submit" onClick={handleSubmit}>Edit</button>
-          <button onClick={props.onClose}>Close</button>
+          <button className="todo-button" type="submit" onClick={handleSubmit}>
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              // setTaskName('');
+              props.onClose();
+            }}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
